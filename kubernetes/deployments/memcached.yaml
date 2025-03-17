@@ -1,0 +1,43 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: memcached
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: memcached
+  template:
+    metadata:
+      labels:
+        app: memcached
+    spec:
+      containers:
+      - name: memcached
+        image: memcached:1.6
+        ports:
+        - containerPort: 11211
+        args:
+        - "-m"
+        - "512"
+        - "-I"
+        - "5m"  # Max item size: 5MB
+        resources:
+          requests:
+            memory: "512Mi"
+            cpu: "250m"
+          limits:
+            memory: "1Gi"
+            cpu: "500m"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: memcached-service
+spec:
+  selector:
+    app: memcached
+  ports:
+  - port: 11211
+    targetPort: 11211
+  type: ClusterIP

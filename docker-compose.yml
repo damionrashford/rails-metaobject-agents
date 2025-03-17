@@ -1,0 +1,53 @@
+version: '3'
+services:
+  db:
+    image: postgres:14
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_PASSWORD: password
+    ports:
+      - "5432:5432"
+
+  redis:
+    image: redis:7
+    ports:
+      - "6379:6379"
+
+  memcached:
+    image: memcached:1.6
+    ports:
+      - "11211:11211"
+    command: [ "-m", "512", "-I", "5m" ]
+
+  web:
+    build: .
+    command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0'"
+    volumes:
+      - .:/app
+    ports:
+      - "3000:3000"
+    depends_on:
+      - db
+      - redis
+      - memcached
+    environment:
+      DATABASE_URL: postgres://postgres:password@db:5432/rails_metaobject_agents_development
+      REDIS_URL: redis://redis:6379/0
+      MEMCACHED_SERVERS: memcached:11211
+
+  sidekiq:
+    build: .
+    command: bundle exec sidekiq
+    volumes:
+      - .:/app
+    depends_on:
+      - db
+      - redis
+    environment:
+      DATABASE_URL: postgres://postgres:password@db:5432/rails_metaobject_agents_development
+      REDIS_URL: redis://redis:6379/0
+      MEMCACHED_SERVERS: memcached:11211
+
+volumes:
+  postgres_data:

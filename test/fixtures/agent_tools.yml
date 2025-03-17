@@ -1,0 +1,21 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  description: MyString
+  tool_type: MyString
+  parameters: 
+  target_agent: MyString
+  function_logic: MyText
+  function_type: MyString
+  metaobject_agent: one
+
+two:
+  name: MyString
+  description: MyString
+  tool_type: MyString
+  parameters: 
+  target_agent: MyString
+  function_logic: MyText
+  function_type: MyString
+  metaobject_agent: two

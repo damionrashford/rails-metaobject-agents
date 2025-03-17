@@ -1,0 +1,21 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  source_agent: one
+  target_agent: one
+  action: MyString
+  payload: 
+  response: 
+  status: MyString
+  started_at: 2025-03-17 15:01:21
+  completed_at: 2025-03-17 15:01:21
+
+two:
+  source_agent: two
+  target_agent: two
+  action: MyString
+  payload: 
+  response: 
+  status: MyString
+  started_at: 2025-03-17 15:01:21
+  completed_at: 2025-03-17 15:01:21

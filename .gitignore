@@ -1,0 +1,74 @@
+# Ignore bundler config
+/.bundle
+
+# Ignore all logfiles and tempfiles
+/log/*
+/tmp/*
+!/log/.keep
+!/tmp/.keep
+
+# Ignore pidfiles
+/tmp/pids/*
+!/tmp/pids/
+!/tmp/pids/.keep
+
+# Ignore uploaded files in development
+/storage/*
+!/storage/.keep
+
+# Ignore master key for decrypting credentials
+/config/master.key
+/config/credentials.yml.enc
+
+# Ignore environment variables
+.env
+.env.*
+!.env.example
+
+# Ignore database configuration
+/config/database.yml
+!/config/database.yml.example
+
+# Ignore node modules
+/node_modules
+
+# Ignore yarn files
+/yarn-error.log
+yarn-debug.log*
+.yarn-integrity
+
+# Ignore coverage reports
+/coverage
+
+# Ignore macOS system files
+.DS_Store
+
+# Ignore editor files
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Ignore Ruby version manager files
+.ruby-version
+.ruby-gemset
+
+# Ignore public uploads
+/public/uploads
+
+# Ignore precompiled assets
+/public/assets
+/public/packs
+/public/packs-test
+
+# Ignore yarn files
+/yarn-error.log
+
+# Ignore Byebug command history file
+.byebug_history
+
+# Ignore Redis dump file
+dump.rdb
+
+# Ignore vendor bundle
+/vendor/bundle
