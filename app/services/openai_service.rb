@@ -4,8 +4,8 @@ require "openai"
 class OpenaiService
   def self.client
     @client ||= OpenAI::Client.new(
-      access_token: ENV["SHOPIFY_OPENAI_ACCESS_TOKEN"] || "shopify-eyJpZCI6IjQyOWZiZjU0NWI3OTcwYzI2ZDA1NGY3MGFmMjA0OWRmIiwibW9kZSI6InBlcnNvbmFsIiwiZW1haWwiOiJkYW1pb24ucmFzaGZvcmRAc2hvcGlmeS5jb20iLCJleHBpcnkiOjE3NDIzMzMyODR9-4cFKChnXz9c9VIgwK4Z0bewM1MyIgPwdqi0vggF62K8=",
-      uri_base: ENV["SHOPIFY_OPENAI_URI_BASE"] || "https://proxy.shopify.ai/v1"
+-----------
+        ----------------
     )
   end
 
